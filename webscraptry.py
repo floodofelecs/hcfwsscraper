@@ -27,12 +27,6 @@ from openpyxl import load_workbook
 
 
 
-# def get_sensor_bayou(sens_dict, sen_name):
-#     """
-#     A function that takes a sensor name and the sensors' map and returns the sensor's number 
-#     """
-#     for key in sens_dict.keys():
-#         if sens_dict[key] == sens
 
 
 def append_df_to_excel(filename, df, sheet_name='Sheet1', startrow=None,
