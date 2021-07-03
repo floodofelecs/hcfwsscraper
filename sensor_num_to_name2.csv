@@ -1,0 +1,182 @@
+,Number,Name
+0,100,Clear Lake 2nd Outlet @ SH 1
+1,105,Marys Creek @ Winding Road
+2,110,Clear Creek @ I-45
+3,115,Cowart Creek @ Baker Road
+4,120,Clear Creek @ FM 528
+5,125,Chigger Creek @ Windsong Lan
+6,130,Clear Creek @ Bay Area Boule
+7,135,Clear Creek @ FM 2351
+8,140,Turkey Creek @ FM 1959
+9,150,Clear Creek @ Country Club D
+10,160,Beamer Ditch @ Hughes Road
+11,170,Clear Creek @ Nassau Bay
+12,175,Clear Creek @ Pearland Parkw
+13,180,Clear Creek @ Mykawa Road
+14,190,Clear Creek @ SH 288
+15,200,Taylor Lake @ Nasa Road 1
+16,210,Armand Bayou @ Pasadena Lake
+17,220,Armand Bayou @ Genoa-Red Blu
+18,230,Big Island Slough @ Fairmont
+19,240,Little Vince Bayou @ Burke R
+20,245,Armand Bayou @ Space Center
+21,250,Horsepen Bayou @ Bay Area Bo
+22,270,Willow Spring Bayou @ Fairmo
+23,310,Berry Bayou @ Nevada Avenue
+24,320,Berry Bayou @ Forest Oaks Bo
+25,340,Sims Bayou @ Telephone Road
+26,360,Sims Bayou @ Martin Luther K
+27,370,Sims Bayou @ SH 288
+28,380,Sims Bayou @ Hiram Clark Rd
+29,400,Harris Gully @ South McGrego
+30,405,Brays Bayou @ Martin Luther
+31,410,Brays Bayou @ Lawndale Stree
+32,420,Brays Bayou @ South Main Str
+33,430,Brays Bayou @ Stella Link Ro
+34,435,Willow Water Hole @ Willowbe
+35,440,Brays Bayou @ Rice Avenue
+36,445,Willow Water Hole @ Landsdow
+37,460,Brays Bayou @ Gessner Road
+38,465,Brays Bayou @ Beltway 8
+39,470,Brays Bayou @ Belle Park Dri
+40,475,Brays Bayou @ Bellaire Boule
+41,480,Keegans Bayou @ Roark Road
+42,485,Brays Bayou @ SH 6
+43,490,Keegans Bayou @ Keegan Road
+44,495,Keegans Bayou @ Rocky Valley
+45,510,Harris County Flood Control
+46,520,White Oak Bayou @ Heights Bo
+47,530,White Oak Bayou @ Ella Boule
+48,535,White Oak Bayou @ Pinemont D
+49,540,White Oak Bayou @ Alabonson
+50,545,White Oak Bayou @ Fairbanks
+51,550,White Oak Bayou @ Lakeview D
+52,555,White Oak Bayou @ Jones Road
+53,560,Little White Oak Bayou @ Tri
+54,570,Little White Oak Bayou @ Tid
+55,575,White Oak Bayou @ Tidwell Ro
+56,580,Brickhouse Gully @ Costa Ric
+57,582,Brickhouse Gully @ Hollister
+58,585,Vogel Creek @ Victory Drive
+59,590,Cole Creek @ Deihl Road
+60,595,Vogel Creek @ Gulf Bank Road
+61,605,Taylor Lake @ Port Road
+62,610,Taylors Bayou @ Shoreacres B
+63,620,Little Cedar Bayou @ 8th Str
+64,640,Lateral @ Sens Road
+65,650,Patricks Bayou @ East 8th St
+66,660,Boggy Bayou @ San Augustine
+67,710,San Jacinto River @ Rio Vill
+68,720,San Jacinto River @ US 90
+69,740,Lake Houston @ FM 1960
+70,750,Lake Houston Dam Spillway
+71,755,San Jacinto River @ Lake Hou
+72,760,San Jacinto River @ US 59
+73,765,San Jacinto River @ SH 99
+74,780,Caney Creek @ FM 2090
+75,785,Peach Creek @ FM 2090
+76,790,East Fork San Jacinto @ FM 1
+77,795,East Fork San Jacinto @ FM 2
+78,820,Hunting Bayou @ I-10
+79,830,Hunting Bayou @ Loop 610 Eas
+80,840,Hunting Bayou @ Lockwood Dri
+81,910,Vince Bayou @ Fairmont Parkw
+82,920,Vince Bayou @ West Ellaine D
+83,940,Little Vince Bayou @ Jackson
+84,1000,Houston Transtar
+85,1020,NRG Park
+86,1040,Spring Creek @ FM 2978
+87,1050,Spring Creek @ I-45
+88,1052,Mill Creek @ FM 149
+89,1054,Mill Creek @ FM 1486
+90,1055,Bear Branch @ Kuykendahl
+91,1056,Mill Creek @ FM 1774
+92,1060,Spring Creek @ Kuykendahl Ro
+93,1070,Spring Creek @ SH 249
+94,1072,Walnut Creek @ Nichols Sawmi
+95,1074,Walnut Creek @ Joseph Road
+96,1075,Tomball Repeater
+97,1076,Birch Creek @ Riley Road
+98,1080,Spring Creek @ Decker Prairi
+99,1084,Threemile Creek @ Joseph Roa
+100,1086,Threemile Creek @ FM 362
+101,1090,Spring Creek @ Hegar Road
+102,1110,Cypress Creek @ Cypresswood
+103,1115,Cypress Creek @ Inverness Fo
+104,1120,Cypress Creek @ I-45
+105,1130,Cypress Creek @ Kuykendahl R
+106,1140,Cypress Creek @ Stuebner-Air
+107,1150,Cypress Creek @ SH 249
+108,1160,Cypress Creek @ Grant Road
+109,1165,Cypress Creek @ Eldridge Par
+110,1170,Cypress Creek @ Huffmeister
+111,1175,Cypress Creek @ US 290
+112,1180,Cypress Creek @ Katy-Hockley
+113,1185,Cypress Creek @ Sharp Road
+114,1186,Live Oak Creek @ Penick Road
+115,1190,Little Mound Creek @ Mathis
+116,1195,Mound Creek @ FM 362
+117,1210,Little Cypress Creek @ Kluge
+118,1220,Little Cypress Creek @ Cypre
+119,1230,Little Cypress Creek @ Becke
+120,1320,Willow Creek @ Kuykendahl Ro
+121,1340,Willow Creek @ SH 249
+122,1420,Carpenters Bayou @ I-10
+123,1440,Carpenters Bayou @ Wallisvil
+124,1460,Carpenters Bayou @ US 90
+125,1540,Goose Creek @ Baker Road
+126,1600,Greens Bayou @ Mount Houston
+127,1610,Greens Bayou @ Normandy Stre
+128,1620,Greens Bayou @ Ley Road
+129,1630,Garners Bayou @ Beltway 8
+130,1640,Greens Bayou @ US 59
+131,1645,Greens Bayou @ Beltway 8
+132,1650,Garners Bayou @ Rankin Road
+133,1655,North Fork Greens Bayou @ El
+134,1660,Greens Bayou @ Knobcrest Dri
+135,1665,Greens Bayou @ Bammel N Hous
+136,1670,Greens Bayou @ Cutten Road
+137,1675,Halls Bayou @ Tidwell Road
+138,1680,Halls Bayou @ Jensen Drive
+139,1685,Greens Bayou @ Tidwell Road
+140,1690,Halls Bayou @ Airline Drive
+141,1695,P138 @ Aldine Westfield Road
+142,1720,Cedar Bayou @ SH 146
+143,1725,Smith Gully @ SH 146
+144,1730,Cedar Bayou @ FM1942
+145,1740,Cedar Bayou @ US 90
+146,1745,Cedar Bayou @ FM 1960
+147,1840,Gum Gully @ Diamond Head Bou
+148,1930,Huffman Repeater
+149,1940,Luce Bayou @ FM 2100
+150,1960,Luce Bayou @ SH 321
+151,1975,Tarkington Bayou @ SH 105
+152,2010,Barker Dam
+153,2015,Clodine Ditch @ Grand Missio
+154,2020,Mason Creek @ Prince Creek D
+155,2025,Buffalo Bayou @ Peek Road
+156,2030,Buffalo Bayou @ Greenbusch R
+157,2040,Buffalo Bayou @ US 90
+158,2050,Cane Island Branch @ Clay Ro
+159,2060,Willow Fork Creek @ Pederson
+160,2090,Brookshire Katy Drainage Dis
+161,2110,Addicks Dam
+162,2120,Langham Creek @ West Little
+163,2130,Horsepen Creek @ Trailside D
+164,2140,Langham Creek @ Longenbaugh
+165,2150,South Mayde @ Greenhouse Roa
+166,2160,Bear Creek @ Clay Road
+167,2170,South Mayde Creek @ Morton R
+168,2180,Bear Creek @ FM 529
+169,2190,South Mayde Creek @ Peek Roa
+170,2210,Buffalo Bayou @ Turning Basi
+171,2220,Buffalo Bayou @ Milam Street
+172,2240,Buffalo Bayou @ Shepherd Dri
+173,2250,Spring Branch @ Bingle Road
+174,2253,Buttermilk Creek @ Moorberry
+175,2255,Briar Branch @ Campbell Road
+176,2260,Buffalo Bayou @ San Felipe D
+177,2265,Buffalo Bayou @ Piney Point
+178,2270,Buffalo Bayou @ West Beltway
+179,2280,Rummel Creek @ Brittmoore Ro
+180,2290,Buffalo Bayou @ Dairy Ashfor

@@ -14,17 +14,9 @@ import time
 import os
 from openpyxl import load_workbook
 
-#TO DO
-# Q: Search and learn how to deploy this and make it run automatically at 1pm daily for example
-# A: Run Every so often, e.g.: Once a day at noon or every 10 minutes: - just about every OS has 
-# a scheduler that can be set to invoke specific tasks with configurable periodicity 
-# - the best known one on Linux/Unix/OS-X is chron or chrontab.
 
-#1. function that splits the text and returns the number and name of the sensor
-#2. function that returns the sensor number given name
-#3. function that returns sensor bayou/creek given the number
-#4. Create a library that gets the total rain fall last 30 mins, 1 hour, day or between given two times
-
+#Get all sensor numbers and names and then read that file creating a map of sensor number to sensor name
+# Create a function that 
 
 def split_sens_to_num_name(location_name):
     """
@@ -43,87 +35,6 @@ def split_sens_to_num_name(location_name):
     return sensor_num, sensor_name
 
 
-def append_df_to_excel(filename, df, sheet_name='Sheet1', startrow=None,
-                       truncate_sheet=False, 
-                       **to_excel_kwargs):
-    """
-    Append a DataFrame [df] to existing Excel file [filename]
-    into [sheet_name] Sheet.
-    If [filename] doesn't exist, then this function will create it.
-
-    @param filename: File path or existing ExcelWriter
-                     (Example: '/path/to/file.xlsx')
-    @param df: DataFrame to save to workbook
-    @param sheet_name: Name of sheet which will contain DataFrame.
-                       (default: 'Sheet1')
-    @param startrow: upper left cell row to dump data frame.
-                     Per default (startrow=None) calculate the last row
-                     in the existing DF and write to the next row...
-    @param truncate_sheet: truncate (remove and recreate) [sheet_name]
-                           before writing DataFrame to Excel file
-    @param to_excel_kwargs: arguments which will be passed to `DataFrame.to_excel()`
-                            [can be a dictionary]
-    @return: None
-
-    Usage examples:
-
-    >>> append_df_to_excel('d:/temp/test.xlsx', df)
-
-    >>> append_df_to_excel('d:/temp/test.xlsx', df, header=None, index=False)
-
-    >>> append_df_to_excel('d:/temp/test.xlsx', df, sheet_name='Sheet2',
-                           index=False)
-
-    >>> append_df_to_excel('d:/temp/test.xlsx', df, sheet_name='Sheet2', 
-                           index=False, startrow=25)
-
-    (c) [MaxU](https://stackoverflow.com/users/5741205/maxu?tab=profile)
-    """
-    # Excel file doesn't exist - saving and exiting
-    if not os.path.isfile(filename):
-        df.to_excel(
-            filename,
-            sheet_name=sheet_name, 
-            startrow=startrow if startrow is not None else 0, 
-            **to_excel_kwargs)
-        return
-    
-    # ignore [engine] parameter if it was passed
-    if 'engine' in to_excel_kwargs:
-        to_excel_kwargs.pop('engine')
-
-    writer = pd.ExcelWriter(filename, engine='openpyxl', mode='a') # pylint: disable=abstract-class-instantiated
-
-    # try to open an existing workbook
-    writer.book = load_workbook(filename)
-    
-    # get the last row in the existing Excel sheet
-    # if it was not specified explicitly
-    if startrow is None and sheet_name in writer.book.sheetnames:
-        startrow = writer.book[sheet_name].max_row
-
-    # truncate sheet
-    if truncate_sheet and sheet_name in writer.book.sheetnames:
-        # index of [sheet_name] sheet
-        idx = writer.book.sheetnames.index(sheet_name)
-        # remove [sheet_name]
-        writer.book.remove(writer.book.worksheets[idx])
-        # create an empty sheet [sheet_name] using old index
-        writer.book.create_sheet(sheet_name, idx)
-    
-    # copy existing sheets
-    writer.sheets = {ws.title:ws for ws in writer.book.worksheets}
-
-    if startrow is None:
-        startrow = 0
-
-    # write out the new sheet
-    df.to_excel(writer, sheet_name, startrow=startrow, **to_excel_kwargs)
-
-    # save the workbook
-    writer.save()
-
-
 # Create a web driver using chrome webdriver and send the link of the website to that driver
 driver = webdriver.Chrome()
 
@@ -137,8 +48,9 @@ today = date.today()
 d1 = today.strftime("%m/%d/%Y")
 
 # print("Date:" + d1)
-my_url = "https://www.harriscountyfws.org/GageDetail/Index/100?From=" + d1 + "%2012:00%20PM&span=24%20Hours&r=1&v=rainfall&selIdx=1"
+my_url = "https://www.harriscountyfws.org/GageDetail/Index/1074?From=" + d1 + "%2012:00%20PM&span=24%20Hours&r=1&v=rainfall&selIdx=1"
 
+# my_url = "https://www.harriscountyfws.org/GageDetail/Index/100?From=" + d1 + "%2012:00%20PM&span=24%20Hours&r=1&v=rainfall&selIdx=1"
 
 # my_url = "https://www.harriscountyfws.org/GageDetail/Index/100?From=06/21/2021%2012:00%20PM&span=24%20Hours&r=1&v=rainfall&selIdx=1"
 
@@ -157,6 +69,7 @@ driver.implicitly_wait(10)
 #Getting the agency drop down menu button and clicking it
 agency_dropdown_button = driver.find_element_by_id("RegionComboBox_B-1")
 agency_dropdown_button.click()
+
 
 
 # Assigning sensors their locations according to the excel sheets published by the harris county flood warning system monthly reports
@@ -215,6 +128,10 @@ sens_num_loc = {
     "2210":"Buffalo Bayou", "2220":"Buffalo Bayou", "2240":"Buffalo Bayou", "2250":"Buffalo Bayou", "2253":"Buffalo Bayou", "2255":"Buffalo Bayou", 
     "2260":"Buffalo Bayou", "2265":"Buffalo Bayou", "2270":"Buffalo Bayou", "2280":"Buffalo Bayou", "2290":"Buffalo Bayou", 
 }
+dict_of_data =    {
+                    "Number": [],
+                    "Name": [],
+                }
 
 sens_num_to_loc = defaultdict(int)
 
@@ -233,7 +150,7 @@ try:
     # Telling the program to wait as long as required (with a max of 10 seconds)
     # Until Harris County becomes clickable then store it in Harris County
     harris_county = WebDriverWait(driver, 10).until(
-        EC.element_to_be_clickable((By.ID, "RegionComboBox_DDD_L_LBI7T0"))
+        EC.element_to_be_clickable((By.ID, "RegionComboBox_DDD_L_LBI8T0"))
     )
     # Select harris county by clicking in the dropdown menu
     harris_county.click()
@@ -274,8 +191,8 @@ try:
     
     # f= open("/Users/mohamedabead/Desktop/vip/besmellah.txt","w")
 
-
-    for i in range(1, 3):
+    #Go from 1 to 188
+    for i in range(100, 188):
         try:
             # Create the location ID using the pattern the locations were created with
             loc_id = "SiteComboBox_DDD_L_LBI" + str(i) + "T0"
@@ -342,10 +259,10 @@ try:
                 print("Selecting the every 5 minute option failed")
                 driver.quit()
 
-        time.sleep(1)
+        time.sleep(2)
 
         ######################################
-        # Getting table data for each 5 mins #
+        # Getting table data                 #
         ######################################
 
         #Getting current page parsed html using beautifulsoup
@@ -376,7 +293,7 @@ try:
 
         #We first get all rows
         tr_tags = rain_level_table.findChildren("tr")
-        print("Hal hayshta8al?")
+        # print("Hal hayshta8al?")
         # print(type(sens_num_to_loc))
         # print("Hal sens_num_to_loc[sensor_num] eshta8al?")
         # print("Sensor_num: " + "*" + sensor_num + "*")
@@ -384,60 +301,36 @@ try:
 
         print("*" + (str) (sens_num_to_loc[sensor_num]) + "*")
 
-        print("eshta8al")
+        # print("eshta8al")
         if sens_num_to_loc[sensor_num] != 0 and sens_num_to_loc[sensor_num] != "OutOfService":
             # Create path to be saved at using fielname of the bayou the sensor is 
-            filename_loc = "/Users/mohamedabead/Desktop/vip/data/" +  sens_num_to_loc[sensor_num] + ".xlsx"
-
-            #Creating the initials headers that will store the data
-            dict_of_data =    {
-                    "Reading Data from": [],
-                    "Reading Data To": [],
-                    "Rain in inches": [],
-                }
-
-
-            # f.write("\n\n\n\n" + sens_num_to_loc[sensor_num] + "\n \n\n\n ")
-
-            #For each row (tr tag)
-            for tr in tr_tags:
-                #We get the row elements (children). These elements are td tags 
-                td_tags = tr.findChildren("td")
-                # We get the data in each cell in order 
-                # We use the strip to remove all the spaces
-                date_from = td_tags[0].text.strip()
-                date_to = td_tags[1].text.strip()
-                rain_in_inch = td_tags[2].text.strip()
-                # If the data is there write it to the file
-                if date_from != "" and date_from != "\n" and date_to != "" and date_to != "\n" and rain_in_inch != "" and rain_in_inch != "\n":
-                    # Add data 
-                    (dict_of_data["Reading Data from"]).append(date_from)
-                    (dict_of_data["Reading Data To"]).append(date_to)
-                    (dict_of_data["Rain in inches"]).append(rain_in_inch)
-
-
-                    # f.write("Date from: " + date_from + "\n")
-                    # f.write("Date to: " + date_to + "\n")
-                    # f.write("Rain inches: " + rain_in_inch + "\n")
-                    # f.write("\n *********************\n ")
+            # filename_loc = "/Users/mohamedabead/Desktop/vip/data/" +  sens_num_to_loc[sensor_num] + ".xlsx"
             
-            #Creating panda data frame
-            panda_df = pd.DataFrame(dict_of_data)
-
-            # Adding fetched data to the excel data 
-            # panda_df.to_excel(filename_loc, sheet_name = sensor_name, index=True)
-            append_df_to_excel(filename_loc, panda_df, sheet_name=sensor_name, index=False)
-
-            # f.write("\n\n\n\n ######## Ya wa3dy ###### \n \n\n\n ")
+            #Creating the initials headers that will store the data
+            dict_of_data["Number"].append(sensor_num)
+            dict_of_data["Name"].append(sensor_name)
 
 
-        
+                                
         if i != 199:
             loc_dropdown_button = driver.find_element_by_id("SiteComboBox_B-1")
             loc_dropdown_button.click()
+    print(dict_of_data)
+    # Creating panda data frame
+    panda_df = pd.DataFrame(dict_of_data)
+
+    # Save data frame
+    panda_df.to_csv("/Users/mohamedabead/Desktop/vip/data/sensor_num_to_name.csv", mode='a', header=False)
+
     
 # If there is an error, quits the driver
 except:
+    #Creating panda data frame
+    panda_df = pd.DataFrame(dict_of_data)
+
+    # Save data frame
+    panda_df.to_csv("/Users/mohamedabead/Desktop/vip/data/sensor_num_to_name.csv", mode='a', header=False)
+
     print("ERRROR in the fetching and saving data part")
     driver.quit()
 
@@ -445,5 +338,3 @@ time.sleep(3)
 # f.close()
 driver.quit()
 
-# betwwen 770 or 780 out of service -> have rain data
-# 1000, 1075, 1076, 1520, 1720, 1930, 2000, 2010, 2110 -> Have rain data 
