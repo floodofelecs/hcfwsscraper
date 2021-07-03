@@ -221,7 +221,6 @@ sens_num_to_loc = defaultdict(int)
 for key in sens_num_loc.keys():
     sens_num_to_loc[key] = sens_num_loc[key]
 
-
 try:
     ###########################
     # Harris County Selection #
@@ -276,7 +275,7 @@ try:
 
     #Going through all 187 sensors
 
-    for i in range(1, 188):
+    for i in range(1, 10):
         try:
             # Create the location ID using the pattern the locations were created with
             loc_id = "SiteComboBox_DDD_L_LBI" + str(i) + "T0"
@@ -417,11 +416,10 @@ try:
                     (dict_of_data["Rain in inches"]).append(rain_in_inch)
 
 
-                    # f.write("Date from: " + date_from + "\n")
-                    # f.write("Date to: " + date_to + "\n")
-                    # f.write("Rain inches: " + rain_in_inch + "\n")
-                    # f.write("\n *********************\n ")
-            
+
+            dict_of_data["Reading Data from"].reverse()
+            dict_of_data["Reading Data To"].reverse()
+            dict_of_data["Rain in inches"].reverse()
             #Creating panda data frame
             panda_df = pd.DataFrame(dict_of_data)
 
