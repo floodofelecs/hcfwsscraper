@@ -36,9 +36,18 @@ def split_sens_to_num_name(location_name):
 
 
 
-df1 = pd.read_csv("/Users/mohamedabead/Desktop/vip/data/sensor_num_to_name2.csv")
-# print(df1)
+def get_sensor_name(sensor_number):
+    """
+    A function that returns the sensor name(first 29 characters) given the sensor number
+    """
+    df = pd.read_csv("/Users/mohamedabead/Desktop/vip/data/sensor_num_to_name2.csv")
+    d2 = df[df["Number"] == sensor_number]
+    return d2["Name"].values[0]
 
+
+#TESTING
+d = get_sensor_name(1120)
+print(d)
 
 
 

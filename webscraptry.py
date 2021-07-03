@@ -233,7 +233,7 @@ try:
     # Telling the program to wait as long as required (with a max of 10 seconds)
     # Until Harris County becomes clickable then store it in Harris County
     harris_county = WebDriverWait(driver, 10).until(
-        EC.element_to_be_clickable((By.ID, "RegionComboBox_DDD_L_LBI7T0"))
+        EC.element_to_be_clickable((By.ID, "RegionComboBox_DDD_L_LBI8T0"))
     )
     # Select harris county by clicking in the dropdown menu
     harris_county.click()
@@ -274,8 +274,9 @@ try:
     
     # f= open("/Users/mohamedabead/Desktop/vip/besmellah.txt","w")
 
+    #Going through all 187 sensors
 
-    for i in range(1, 3):
+    for i in range(1, 188):
         try:
             # Create the location ID using the pattern the locations were created with
             loc_id = "SiteComboBox_DDD_L_LBI" + str(i) + "T0"
