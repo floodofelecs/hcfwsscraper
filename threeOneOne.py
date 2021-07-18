@@ -85,8 +85,8 @@ for i in range(1, len(Lines)):
 
 panda_df = pd.DataFrame(dict)
 
-print(panda_df.head())
-# panda_df.to_csv("", index=False)
+# print(panda_df.head())
+panda_df.to_csv("threeOneOne.csv", index=False)
 # print(dict)
 
     
