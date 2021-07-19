@@ -39,10 +39,30 @@ from openpyxl import load_workbook
 
 # # panda_df.to_csv("/Users/mohamedabead/Desktop/vip/threeoneone.csv")
 
-# print(entire_text)
+# # print(entire_text)
 
 
 # driver.quit()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Using readlines()
 file1 = open('threeOneOne.txt', 'r')
@@ -86,9 +106,8 @@ for i in range(1, len(Lines)):
 panda_df = pd.DataFrame(dict)
 
 # print(panda_df.head())
-panda_df.to_csv("threeOneOne.csv", index=False)
+# panda_df.to_csv("threeOneOne.csv", index=False)
+panda_df.to_csv("threeOneOne.csv", mode='a', index=False, header=False)
+
 # print(dict)
 
-    
-
-# print(titles)
