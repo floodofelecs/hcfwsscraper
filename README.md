@@ -5,3 +5,6 @@ The scraper currently scrapes the 5-minute interval data every day from 12pm of 
 
 
 Currently the scraper saves the data locally, and doesn't run automatically. The goal is to deploy it to a cloud and automatically run the code every 24 hours.
+
+# Follow this link for an extensive documentation of the scraper and how it works
+https://docs.google.com/document/d/1WpxpOWGAdXF284kfA3Z4LRpTTQOVmOR7q1agj0rJ0Ao/edit
